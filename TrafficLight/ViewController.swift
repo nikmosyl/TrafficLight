@@ -9,11 +9,38 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet var redLightView: UIView!
+    @IBOutlet var yellowLightView: UIView!
+    @IBOutlet var greenLightView: UIView!
+    @IBOutlet var trafficLightButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        redLightView.alpha = 0.3
+        yellowLightView.alpha = 0.3
+        greenLightView.alpha = 0.3
+        
+        redLightView.layer.cornerRadius = redLightView.frame.height / 2
+        yellowLightView.layer.cornerRadius = yellowLightView.frame.width / 2
+        greenLightView.layer.cornerRadius = greenLightView.frame.height / 2
+        
+        trafficLightButton.layer.cornerRadius = 10
     }
+    
+    @IBAction func trafficLightDidTapped() {
+        if redLightView.alpha == 1 {
+            redLightView.alpha = 0.3
+            yellowLightView.alpha = 1
+        } else if yellowLightView.alpha == 1 {
+            yellowLightView.alpha = 0.3
+            greenLightView.alpha = 1
+        } else {
+            greenLightView.alpha = 0.3
+            redLightView.alpha = 1
+            trafficLightButton.setTitle("Next", for: .normal)
+        }
+    }
+    
 
 
 }
-
