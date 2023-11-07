@@ -19,12 +19,13 @@ class ViewController: UIViewController {
         redLightView.alpha = 0.3
         yellowLightView.alpha = 0.3
         greenLightView.alpha = 0.3
-        
+        trafficLightButton.layer.cornerRadius = 10
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         redLightView.layer.cornerRadius = redLightView.frame.height / 2
         yellowLightView.layer.cornerRadius = yellowLightView.frame.width / 2
         greenLightView.layer.cornerRadius = greenLightView.frame.height / 2
-        
-        trafficLightButton.layer.cornerRadius = 10
     }
     
     @IBAction func trafficLightDidTapped() {
